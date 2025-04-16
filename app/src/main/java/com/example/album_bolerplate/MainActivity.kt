@@ -11,9 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.album_bolerplate.presentation.AlbumSelectionViewModel
 import com.example.album_bolerplate.ui.theme.AlbumbolerplateTheme
 
 class MainActivity : ComponentActivity() {
+    val viewModel = AlbumSelectionViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,14 +26,20 @@ class MainActivity : ComponentActivity() {
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
+                    loadAlbums()
                 }
             }
         }
     }
+    fun loadAlbums() {
+        viewModel.loadAlbums()
+    }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(
+    name: String,
+    modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
         modifier = modifier

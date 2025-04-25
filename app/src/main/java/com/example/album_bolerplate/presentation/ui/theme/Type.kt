@@ -1,4 +1,4 @@
-package com.example.album_bolerplate.ui.theme
+package com.example.album_bolerplate.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

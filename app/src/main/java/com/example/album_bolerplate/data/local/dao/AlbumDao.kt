@@ -1,5 +1,6 @@
 package com.example.album_bolerplate.data.local.dao
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface AlbumDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)  // If conflict (same PK), replace old row
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAlbums(albums: List<AlbumEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -50,6 +51,18 @@ interface AlbumDao {
 
     @Query("DELETE FROM albums")
     suspend fun clearAllAlbums()
+
+    // --- Paging Methods ---
+
+    @Query("SELECT * FROM albums ORDER BY id ASC")
+    fun getAlbumPagingSource(): PagingSource<Int, AlbumEntity>
+
+    @Query("SELECT * FROM items WHERE albumId = :albumId ORDER BY id ASC")
+    fun getItemPagingSourceForAlbum(albumId: Int): PagingSource<Int, ItemEntity>
+
+    // --- Detail Method (for Screen 3) ---
+    @Query("SELECT * FROM items WHERE id = :itemId")
+    fun getItemById(itemId: Int): Flow<ItemEntity?>
 
     @Transaction
     suspend fun clearAllData() {

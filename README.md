@@ -50,11 +50,40 @@ This project was approached as a professional development task, focusing on robu
 
 1. **Clone the Repository:** Obtain the source code from the provided Git repository.
 
-2. **Open in Android Studio:** Open the project using a recent version of Android Studio (e.g., Koala, Iguana or later recommended).
+2. **Open in Android Studio:** Open the project using a recent version of Android Studio (e.g., Koala, Iguana or later recommended) Canary for preference.
+3. Have in mind the following **dependencies**:
+```
+agp = "8.11.0-alpha05"
+kotlin = "2.1.20"
+coreKtx = "1.16.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.5.1"
+lifecycleRuntimeKtx = "2.8.7"
+activityCompose = "1.10.1"
+composeBom = "2025.04.01"
+ktor = "3.1.2"
+room = "2.7.1"
+ksp = "2.1.20-2.0.0" # Before the '-' Need to match with kotlin version
+hilt = "2.56.2"
+pagingCommonAndroid = "3.3.6"
+coil = "3.1.0"
+pagingComposeAndroid = "3.3.6"
+hiltNavigationCompose = "1.2.0"
+navigationCompose = "2.8.9"
+junitKtx = "1.2.1"
+coroutinesTest = "1.10.2"
+pagingTestingAndroid = "3.3.6"
+hamcrest = "3.0"
+androidxTestCore = "1.6.1"
+runner = "1.6.2"
+mockk = "1.14.0"
+turbine = "1.2.0"
+```
 
-3. **Build:** Allow Gradle to sync and download dependencies. Build the project using `Build > Make Project` or by running the app directly.
+4. **Build:** Allow Gradle to sync and download dependencies. Build the project using `Build > Make Project` or by running the app directly.
 
-4. **Run:** Deploy the application to an Android emulator or a physical device (minimum SDK 24).
+5. **Run:** Deploy the application to an Android emulator or a physical device (minimum SDK 24).
 
 ## Key Decisions & Justifications
 
